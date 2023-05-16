@@ -66,9 +66,16 @@ function createBoard() {
 
 createBoard();
 
+function checkMatch() {
+  console.log("Check for match");
+}
+
 function flipCard() {
   const cardId = this.getAttribute("data-id");
   cardsChosen.push(cardArray[cardId].name);
-
   console.log("clicked", cardId);
+  this.setAttribute("src", cardArray[cardId].img);
+  if (cardsChosen.length === 2) {
+    setTimeout(checkMatch, 500);
+  }
 }
